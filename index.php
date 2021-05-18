@@ -17,18 +17,13 @@
             <!-- php -->
             <?php
             // suddivisione dati un poco primitiva
-            $squadre = [
-                0 => 'Milan',
-                1 => 'Lakers',
-                2 => 'Pro Vercelli',
-                3 => 'Virtus Bologna',
-            ];
+
             $risultati_terza_giornata = [
                 0 => [
-                    'team_casa' => 0,
-                    'team_fuori' => 2,
-                    'punti_casa' =>  32,
-                    'punti_fuori' => 65
+                    'team_casa' => 'Milan',
+                    'team_fuori' => 'Lakers',
+                    'punti_casa' =>  'Pro Vercelli',
+                    'punti_fuori' => 'Virtus Bologna'
                 ],
                 1 => [
                     'team_casa' => 3,
@@ -52,8 +47,8 @@
                 <tbody>
                     <?php for ($i = 0; $i < count($risultati_terza_giornata); $i++) { ?>
                         <tr>
-                            <td><?php echo $squadre[$risultati_terza_giornata[$i]['team_casa']] ?></td>
-                            <td><?php echo $squadre[$risultati_terza_giornata[$i]['team_fuori']] ?></td>
+                            <td><?php echo $risultati_terza_giornata[$i]['team_casa'] ?></td>
+                            <td><?php echo $risultati_terza_giornata[$i]['team_fuori'] ?></td>
                             <td style="text-align: right"><?php echo $risultati_terza_giornata[$i]['punti_casa'] . ' | ' . $risultati_terza_giornata[$i]['punti_fuori'] ?></td>
                         </tr>
                     <?php } ?>
@@ -82,7 +77,7 @@
             <!-- END php -->
             <?php if ($logged) { ?>
             <span>Accesso riuscito</span> <br>
-            <span><?php echo 'Benvenuto, ' . $nome ?></span>
+            <span><?php echo 'Benvenuto, ' . ucfirst($nome) ?></span>
             <?php } else {?>
             <span>Accesso negato</span>
             <?php } ?>
